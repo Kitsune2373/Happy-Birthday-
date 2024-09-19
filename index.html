@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun, Humaira!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Happy Birthday!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#message">Message</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!, Humaira!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Paste the enhanced CSS here */
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 56px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .jumbotron {
+            height: calc(100vh - 56px);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* ... (rest of the enhanced CSS) ... */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Happy Birthday!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#message">Message</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="jumbotron jumbotron-fluid parallax-window" data-parallax="scroll" data-image-src="./img/background.jpg">
+        <div id="particles-js"></div>
+        <div class="container text-center">
+            <h1 class="display-4" data-aos="fade-down">Happy Birthday, Humaira!</h1>
+            <p class="lead" data-aos="fade-up">Today we celebrate YOU, my love, my joy, my everything!</p>
+            <div id="countdown" class="mt-4" data-aos="zoom-in"></div>
+        </div>
+    </header>
+
+    <!-- Galeri Kenangan Humaira -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">Galeri Kenangan Humaira</h2>
+            <div class="row" id="gallery-container" data-aos="fade-right">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="img/maira1.jpg" alt="Kenangan 1" class="img-fluid">
+                        <div class="gallery-item-info">
+                            <h5>Kenangan di Pantai</h5>
+                            <p>Momen indah bersama di pantai</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="img/maira2.jpg" alt="Kenangan 2" class="img-fluid">
+                        <div class="gallery-item-info">
+                            <h5>Liburan Pegunungan</h5>
+                            <p>Petualangan seru di alam pegunungan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="img/maira3.jpg" alt="Kenangan 3" class="img-fluid">
+                        <div class="gallery-item-info">
+                            <h5>Acara Spesial</h5>
+                            <p>Perayaan ulang tahun bersama keluarga</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">Perjalanan Cinta Kita</h2>
+            <div class="timeline">
+                <!-- Timeline Item 1: Perkenalan Awal -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Perkenalan Awal</h3>
+                        <p>Semua bermula ketika abang ipar memperkenalkan Humaira, meskipun saat itu aku belum melihat wajahmu. Namun, sejak awal aku merasakan sesuatu yang istimewa. Tidak ada keraguan dalam hatiku; hanya keinginan yang mendalam untuk mengenalmu lebih jauh.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2: Perasaan Tumbuh -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Perasaan Tumbuh</h3>
+                        <p>Setiap momen sejak perkenalan itu terasa berharga. Perjalananku dimulai dengan rasa ingin tahu dan kebahagiaan yang tulus. Aku mulai menyadari betapa istimewa dirimu dalam hidupku.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3: Kebahagiaan Bersama -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Kebahagiaan Bersama</h3>
+                        <p>Kini, setiap hari bersamamu adalah sebuah keajaiban yang aku syukuri. Setiap pengalaman dan momen yang aku lewati bersama humaira semakin menguatkan rasa cinta dan kebahagiaan dalam hidupku.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <section id="message" class="py-5 parallax-window" data-parallax="scroll" data-image-src="img/message-bg.jpg">
+        <div class="container">
+            <h2 class="text-center mb-4 text-white" data-aos="fade-up">Pesan Spesial Untukmu</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card" data-aos="flip-left">
+                        <div class="card-body">
+                            <p class="lead text-center" id="typewriter"></p>
+                            <p>Dear Humaira,</p>
+                <p>Every moment with you is a treasure. On your special day, I want you to know how much you mean to me. Your smile lights up my world and your laughter is my favorite song. May this year bring you endless joy and countless blessings. Happy Birthday!</p>
+                <p>With all my love,</p>
+                <p>Aqil Segaf</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; Made with ❤️ for Humaira by Aqil Segaf</p>
+        </div>
+    </footer>
+
+    <!-- Audio Background -->
+    <audio id="background-music" autoplay loop class="mt-4">
+        <source src="./musik/play date.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+
+    var audio = document.getElementById('background-music');
+    
+    // Fungsi untuk mulai memutar musik setelah interaksi pengguna
+    function playAudio() {
+        audio.play();
+    }
+    
+    // Memulai musik setelah halaman disentuh atau diklik
+    window.addEventListener('click', playAudio);
+    window.addEventListener('scroll', playAudio);
+        // Paste the enhanced JavaScript here
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+
+            // Inisialisasi particles.js
+            particlesJS.load('particles-js', 'path/to/particles.json', function() {
+                console.log('particles.js loaded');
+            });
+
+            // Animasi latar belakang dengan canvas
+            const canvas = document.getElementById('birthday-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // ... (rest of the enhanced JavaScript) ...
+        });
+    </script>
+</body>
+</html>
