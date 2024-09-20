@@ -1,7 +1,9 @@
+/* Timeline styling */
 .timeline {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px 0;
 }
 
 .timeline::after {
@@ -79,4 +81,61 @@
     position: relative;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid #ff69b4;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #ff69b4 transparent transparent;
+    }
+
+    .left::after, .right::after {
+        left: 15px;
+    }
+
+    .right {
+        left: 0%;
+    }
+    
+    .timeline-content {
+        padding: 15px 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 480px) {
+    .timeline-item {
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+    
+    .timeline-item::before {
+        left: 40px;
+    }
+    
+    .timeline::after {
+        left: 21px;
+    }
+    
+    .left::after, .right::after {
+        left: 5px;
+    }
+    
+    .timeline-content {
+        padding: 10px 15px;
+    }
 }
