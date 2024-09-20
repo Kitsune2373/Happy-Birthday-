@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     animateHearts();
 
     // Enhanced countdown timer with smooth animation
-    const countDownDate = new Date("2024-09-18T00:00:00").getTime();
+    const countDownDate = new Date("2024-10-11T00:00:00").getTime();
     const countdownEl = document.getElementById('countdown');
 
     function updateCountdown() {
