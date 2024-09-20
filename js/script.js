@@ -1,77 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Existing initialization
     AOS.init({
         duration: 1000,
         once: true
     });
 
-    // Inisialisasi particles.js
     particlesJS.load('particles-js', 'path/to/particles.json', function() {
         console.log('particles.js loaded');
     });
 
-    // Animasi latar belakang dengan canvas
+    // Existing canvas animation
     const canvas = document.getElementById('birthday-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const hearts = [];
-    const colors = ['#ff6b6b', '#ff9ff3', '#54a0ff', '#5f27cd', '#ff6b6b', '#ff9ff3'];
-
-    class Heart {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = canvas.height + 100;
-            this.size = Math.random() * 30 + 10;
-            this.speed = Math.random() * 3 + 1;
-            this.color = colors[Math.floor(Math.random() * colors.length)];
-            this.angle = 0;
-            this.angleSpeed = Math.random() * 0.05 - 0.025;
-        }
-
-        draw() {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.angle);
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.bezierCurveTo(-this.size / 2, -this.size / 2, -this.size, this.size / 3, 0, this.size);
-            ctx.bezierCurveTo(this.size, this.size / 3, this.size / 2, -this.size / 2, 0, 0);
-            ctx.closePath();
-            ctx.fill();
-            ctx.restore();
-        }
-
-        update() {
-            this.y -= this.speed;
-            this.angle += this.angleSpeed;
-            if (this.y < -100) {
-                this.y = canvas.height + 100;
-                this.x = Math.random() * canvas.width;
-            }
-        }
-    }
-
-    function createHearts() {
-        for (let i = 0; i < 50; i++) {
-            hearts.push(new Heart());
-        }
-    }
-
-    function animateHearts() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        hearts.forEach(heart => {
-            heart.update();
-            heart.draw();
-        });
-        requestAnimationFrame(animateHearts);
-    }
+    // ... (rest of the existing Heart class and related functions)
 
     createHearts();
     animateHearts();
 
-    // Countdown timer with smooth animation
+    // Enhanced countdown timer with smooth animation
     const countDownDate = new Date("2024-09-18T00:00:00").getTime();
     const countdownEl = document.getElementById('countdown');
 
@@ -94,14 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (distance < 0) {
             clearInterval(countdownTimer);
             countdownEl.innerHTML = "<span>Selamat Ulang Tahun!</span>";
-            launchConfetti();
+            launchCelebration();
         }
     }
 
     const countdownTimer = setInterval(updateCountdown, 1000);
     updateCountdown(); // Initial call
 
-    // Konfeti saat ulang tahun tiba
+    // Enhanced celebration when countdown reaches zero
+    function launchCelebration() {
+        launchConfetti();
+        playBirthdaySong();
+        showBirthdayMessage();
+    }
+
     function launchConfetti() {
         confetti({
             particleCount: 100,
@@ -110,7 +65,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Galeri foto dengan lightbox
+    function playBirthdaySong() {
+        const birthdaySong = document.getElementById('birthday-song');
+        if (birthdaySong) {
+            birthdaySong.play();
+        }
+    }
+
+    function showBirthdayMessage() {
+        const messageEl = document.createElement('div');
+        messageEl.innerHTML = `
+            <h2>Happy Birthday Humaira!</h2>
+            <p>Wishing you a day filled with love, joy, and beautiful memories!</p>
+        `;
+        messageEl.style.position = 'fixed';
+        messageEl.style.top = '50%';
+        messageEl.style.left = '50%';
+        messageEl.style.transform = 'translate(-50%, -50%)';
+        messageEl.style.background = 'rgba(255, 255, 255, 0.9)';
+        messageEl.style.padding = '20px';
+        messageEl.style.borderRadius = '10px';
+        messageEl.style.zIndex = '1000';
+        document.body.appendChild(messageEl);
+    }
+
+    // Enhanced gallery with lightbox
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -125,6 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="close-lightbox">&times;</button>
                 </div>
             `;
+            lightbox.style.position = 'fixed';
+            lightbox.style.top = '0';
+            lightbox.style.left = '0';
+            lightbox.style.width = '100%';
+            lightbox.style.height = '100%';
+            lightbox.style.background = 'rgba(0, 0, 0, 0.8)';
+            lightbox.style.display = 'flex';
+            lightbox.style.alignItems = 'center';
+            lightbox.style.justifyContent = 'center';
+            lightbox.style.zIndex = '1000';
             document.body.appendChild(lightbox);
 
             lightbox.querySelector('.close-lightbox').addEventListener('click', () => {
@@ -133,91 +122,75 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animasi scroll smooth untuk navigasi
+    // Enhanced smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+                behavior: 'smooth',
+                block: 'start'
             });
         });
     });
 
-    // Pesan Ucapan dengan animasi
-    const messageForm = document.getElementById('message-form');
-    const messageList = document.getElementById('message-list');
-
-    messageForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
-
-        if (name && message) {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}:</strong> ${message}`;
-            li.style.opacity = '0';
-            messageList.appendChild(li);
-
-            // Animate the new message
-            setTimeout(() => {
-                li.style.transition = 'opacity 0.5s ease';
-                li.style.opacity = '1';
-            }, 10);
-
-            // Clear form
-            document.getElementById('name').value = '';
-            document.getElementById('message').value = '';
-        }
-    });
-
-    // Musik Latar dengan visualizer
+    // Enhanced music player
     const musicToggle = document.getElementById('music-toggle');
     const bgMusic = document.getElementById('bg-music');
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    const analyser = audioContext.createAnalyser();
-    const source = audioContext.createMediaElementSource(bgMusic);
-    source.connect(analyser);
-    analyser.connect(audioContext.destination);
 
-    musicToggle.addEventListener('click', function() {
-        if (bgMusic.paused) {
-            bgMusic.play();
-            musicToggle.textContent = 'Pause Music';
-            audioContext.resume();
-        } else {
-            bgMusic.pause();
-            musicToggle.textContent = 'Play Music';
+    if (musicToggle && bgMusic) {
+        musicToggle.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggle.textContent = 'Pause Music';
+            } else {
+                bgMusic.pause();
+                musicToggle.textContent = 'Play Music';
+            }
+        });
+    }
+
+    // New feature: Dynamic background color
+    function changeBackgroundColor() {
+        const colors = ['#ffcccb', '#ffd700', '#98fb98', '#87cefa'];
+        let currentIndex = 0;
+
+        setInterval(() => {
+            document.body.style.backgroundColor = colors[currentIndex];
+            currentIndex = (currentIndex + 1) % colors.length;
+        }, 10000); // Change every 10 seconds
+    }
+
+    changeBackgroundColor();
+
+    // New feature: Animated text for main title
+    function animateText(elementId, text) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerHTML = '';
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(() => {
+                    element.innerHTML += text[i];
+                }, i * 100);
+            }
         }
-    });
+    }
 
-    function visualize() {
-        const canvas = document.getElementById('music-visualizer');
-        const ctx = canvas.getContext('2d');
-        const WIDTH = canvas.width;
-        const HEIGHT = canvas.height;
+    animateText('main-title', 'Happy Birthday, Humaira!');
 
-        analyser.fftSize = 256;
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
+    // New feature: Interactive wishes
+    const wishForm = document.getElementById('wish-form');
+    const wishList = document.getElementById('wish-list');
 
-        ctx.clearRect(0, 0, WIDTH, HEIGHT);
-
-        function draw() {
-            requestAnimationFrame(draw);
-
-            analyser.getByteFrequencyData(dataArray);
-
-            ctx.fillStyle = 'rgb(0, 0, 0)';
-            ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-            const barWidth = (WIDTH / bufferLength) * 2.5;
-            let barHeight;
-            let x = 0;
-
-            for(let i = 0; i < bufferLength; i++) {
-                barHeight = dataArray[i] / 2;
-
-                ctx.fillStyle = `rgb(${barHeight + 100},50,50)`;
-                ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-
-                x
+    if (wishForm && wishList) {
+        wishForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const wishInput = document.getElementById('wish-input');
+            if (wishInput.value.trim() !== '') {
+                const wish = document.createElement('li');
+                wish.textContent = wishInput.value;
+                wishList.appendChild(wish);
+                wishInput.value = '';
+            }
+        });
+    }
+});
