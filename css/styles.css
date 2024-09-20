@@ -241,3 +241,39 @@ body {
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+/* Responsif untuk tampilan mobile */
+@media only screen and (max-width: 768px) {
+    .timeline::after {
+        left: 5%; /* Pindahkan garis tengah ke kiri di perangkat mobile */
+    }
+
+    .timeline-item {
+        width: 100%; /* Lebarkan timeline-item menjadi 100% */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .right, .left {
+        left: 0; /* Hilangkan posisi kiri-kanan */
+    }
+
+    .timeline-item::after {
+        left: 15px; /* Pindahkan titik ke kiri */
+        right: auto;
+    }
+
+    .left::before, .right::before {
+        left: 45px; /* Posisikan panah ke kiri */
+        right: auto;
+    }
+
+    /* Sesuaikan font size pada jumbotron */
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+
+    .gallery-item img {
+        height: auto; /* Buat gambar galeri menyesuaikan tinggi secara otomatis */
+    }
+}
